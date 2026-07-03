@@ -10,86 +10,122 @@ const openReadmeInEditor = () => fetch('/__open-in-editor?file=README.md')
 </script>
 
 <template>
-  <WelcomeItem>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
-    <template #heading>Documentation</template>
+  <div class="demo-page">
+    <div class="hero">
+      <span class="badge"> Branche DEMO</span>
 
-    Vue’s
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
-    provides you with all information you need to get started.
-  </WelcomeItem>
+      <h1>Bienvenue sur la version de démonstration</h1>
 
-  <WelcomeItem>
-    <template #icon>
-      <ToolingIcon />
-    </template>
-    <template #heading>Tooling</template>
+      <p>
+        Cette version est déployée automatiquement par Vercel depuis la branche
+        <strong>feature/demo</strong>.
+      </p>
 
-    This project is served and bundled with
-    <a href="https://vite.dev/guide/features.html" target="_blank" rel="noopener">Vite</a>. The
-    recommended IDE setup is
-    <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a>
-    +
-    <a href="https://github.com/vuejs/language-tools" target="_blank" rel="noopener"
-      >Vue - Official</a
-    >. If you need to test your components and web pages, check out
-    <a href="https://vitest.dev/" target="_blank" rel="noopener">Vitest</a>
-    and
-    <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a>
-    /
-    <a href="https://playwright.dev/" target="_blank" rel="noopener">Playwright</a>.
+      <div class="buttons">
+        <button>Voir le tableau de bord</button>
+        <button class="secondary">Documentation</button>
+      </div>
+    </div>
 
-    <br />
+    <div class="cards">
+      <div class="card">
+        <h3>⚡ Déploiement</h3>
+        <p>Chaque push crée automatiquement un aperçu de l'application.</p>
+      </div>
 
-    More instructions are available in
-    <a href="javascript:void(0)" @click="openReadmeInEditor"><code>README.md</code></a
-    >.
-  </WelcomeItem>
+      <div class="card">
+        <h3>🌿 Git Branches</h3>
+        <p>Chaque collaborateur possède sa propre URL de prévisualisation.</p>
+      </div>
 
-  <WelcomeItem>
-    <template #icon>
-      <EcosystemIcon />
-    </template>
-    <template #heading>Ecosystem</template>
+      <div class="card">
+        <h3>🔄 CI/CD</h3>
+        <p>Les Pull Requests sont testées avant leur fusion dans la production.</p>
+      </div>
 
-    Get official tools and libraries for your project:
-    <a href="https://pinia.vuejs.org/" target="_blank" rel="noopener">Pinia</a>,
-    <a href="https://router.vuejs.org/" target="_blank" rel="noopener">Vue Router</a>,
-    <a href="https://test-utils.vuejs.org/" target="_blank" rel="noopener">Vue Test Utils</a>, and
-    <a href="https://github.com/vuejs/devtools" target="_blank" rel="noopener">Vue Dev Tools</a>. If
-    you need more resources, we suggest paying
-    <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>
-    a visit.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <CommunityIcon />
-    </template>
-    <template #heading>Community</template>
-
-    Got stuck? Ask your question on
-    <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Vue Land</a>
-    (our official Discord server), or
-    <a href="https://stackoverflow.com/questions/tagged/vue.js" target="_blank" rel="noopener"
-      >StackOverflow</a
-    >. You should also follow the official
-    <a href="https://bsky.app/profile/vuejs.org" target="_blank" rel="noopener">@vuejs.org</a>
-    Bluesky account or the
-    <a href="https://x.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
-    X account for latest news in the Vue world.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <SupportIcon />
-    </template>
-    <template #heading>Support Vue</template>
-
-    As an independent project, Vue relies on community backing for its sustainability. You can help
-    us by
-    <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
-  </WelcomeItem>
+      <div class="card">
+        <h3>👥 Collaboration</h3>
+        <p>L'équipe peut consulter le travail de chacun directement sur Vercel.</p>
+      </div>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+.demo-page{
+    padding:50px;
+    max-width:1200px;
+    margin:auto;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.badge{
+    background:#42b883;
+    color:white;
+    padding:8px 18px;
+    border-radius:20px;
+    font-size:14px;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#666;
+    font-size:18px;
+}
+
+.buttons{
+    margin-top:35px;
+}
+
+button{
+    background:#42b883;
+    color:white;
+    border:none;
+    padding:14px 28px;
+    border-radius:8px;
+    cursor:pointer;
+    margin:8px;
+    font-size:16px;
+}
+
+.secondary{
+    background:#35495e;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:14px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#666;
+}
+</style>
